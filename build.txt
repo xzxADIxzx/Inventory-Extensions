@@ -1,0 +1,5 @@
+displayName = Inventory Extensions
+author = xzxADIxzx
+version = 1.0.0
+side = Client
+homepage = https://github.com/xzxADIxzx/Inventory-Extensions

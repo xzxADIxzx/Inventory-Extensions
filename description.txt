@@ -1,0 +1,1 @@
+Expands the features of vanilla inventory

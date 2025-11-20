@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\tModLoader.targets" />
+
+    <PropertyGroup>
+        <AssemblyName>Extensions</AssemblyName>
+        <Description>Expands the features of vanilla inventory</Description>
+        <Version>1.0.0</Version>
+
+        <RootNamespace>Extensions</RootNamespace>
+        <NoWarn>IDE0130, CA2211</NoWarn>
+    </PropertyGroup>
+
+</Project>
