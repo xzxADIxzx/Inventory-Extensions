@@ -1,0 +1,5 @@
+Keybinds: {
+    quick-stack.DisplayName: Быстрая стопка (когда открыт сундук)
+    quick-sort.DisplayName: Быстрая сортировка (когда открыт сундук)
+    clear-hotbar.DisplayName: Очистить панель быстрого доступа
+}

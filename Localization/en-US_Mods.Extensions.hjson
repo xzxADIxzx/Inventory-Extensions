@@ -1,0 +1,5 @@
+Keybinds: {
+    quick-stack.DisplayName: Quick Stack (when a chest is open)
+    quick-sort.DisplayName: Quick Sort (when a chest is open)
+    clear-hotbar.DisplayName: Clear Hotbar (move items outta hotbar)
+}
