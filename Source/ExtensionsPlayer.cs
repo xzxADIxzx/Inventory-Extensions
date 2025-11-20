@@ -1,8 +1,10 @@
 namespace Extensions;
 
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameInput;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI;
 
@@ -41,7 +43,8 @@ public class ExtensionsPlayer : ModPlayer
                 var dest = Player.inventory[j];
                 if (dest.type == item.type)
                 {
-                    ItemLoader.TryStackItems(dest, item, out _);
+                    ItemLoader.TryStackItems(dest, item, out int itemsMoved);
+                    if (itemsMoved != 0) SoundEngine.PlaySound(SoundID.Grab);
                     if (item.stack == 0) return;
                 }
             }
@@ -52,6 +55,7 @@ public class ExtensionsPlayer : ModPlayer
                 {
                     Player.inventory[j] = item;
                     Player.inventory[i] = dest;
+                    SoundEngine.PlaySound(SoundID.Grab);
                     return;
                 }
             }
