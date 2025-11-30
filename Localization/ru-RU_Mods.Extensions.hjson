@@ -2,4 +2,14 @@ Keybinds: {
     quick-stack.DisplayName: Быстрая стопка (когда открыт сундук)
     quick-sort.DisplayName: Быстрая сортировка (когда открыт сундук)
     clear-hotbar.DisplayName: Очистить панель быстрого доступа
+    quick-use-0.DisplayName: Быстрое использование #1
+    quick-use-1.DisplayName: Быстрое использование #2
+    quick-use-2.DisplayName: Быстрое использование #3
+    quick-use-3.DisplayName: Быстрое использование #4
+    quick-use-4.DisplayName: Быстрое использование #5
+    quick-use-5.DisplayName: Быстрое использование #6
+    quick-use-6.DisplayName: Быстрое использование #7
+    quick-use-7.DisplayName: Быстрое использование #8
+    quick-use-8.DisplayName: Быстрое использование #9
+    quick-use-9.DisplayName: Быстрое использование #10
 }

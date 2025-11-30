@@ -2,4 +2,14 @@ Keybinds: {
     quick-stack.DisplayName: Quick Stack (when a chest is open)
     quick-sort.DisplayName: Quick Sort (when a chest is open)
     clear-hotbar.DisplayName: Clear Hotbar (move items outta hotbar)
+    quick-use-0.DisplayName: Quick Use #1 (uses a hotbar item)
+    quick-use-1.DisplayName: Quick Use #2 (but doesn't select it)
+    quick-use-2.DisplayName: Quick Use #3
+    quick-use-3.DisplayName: Quick Use #4
+    quick-use-4.DisplayName: Quick Use #5
+    quick-use-5.DisplayName: Quick Use #6
+    quick-use-6.DisplayName: Quick Use #7
+    quick-use-7.DisplayName: Quick Use #8
+    quick-use-8.DisplayName: Quick Use #9
+    quick-use-9.DisplayName: Quick Use #10
 }
