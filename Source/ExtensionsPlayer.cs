@@ -11,11 +11,28 @@ using Terraria.UI;
 /// <summary> Sort of a patch that extends vanilla functionality. </summary>
 public class ExtensionsPlayer : ModPlayer
 {
+    /// <summary> Hotbar slot to be selected during post-update. </summary>
+    public static int SelectOnPost = -1;
+
     public override void ProcessTriggers(TriggersSet triggers)
     {
         if (Extensions.QuickStack .JustPressed) QuickStack ();
         if (Extensions.QuickSort  .JustPressed) QuickSort  ();
         if (Extensions.ClearHotbar.JustPressed) ClearHotbar();
+
+        for (int i = 0; i < Extensions.QuickUse.Length; i++)
+        {
+            if (Extensions.QuickUse[i].JustPressed) QuickUse(i);
+        }
+    }
+
+    public override void PostUpdate()
+    {
+        if (SelectOnPost != -1 && Player.itemTime == 0)
+        {
+            Player.selectedItem = SelectOnPost;
+            SelectOnPost = -1;
+        }
     }
 
     /// <summary> Simply calls vanilla quick stack. </summary>
@@ -61,5 +78,20 @@ public class ExtensionsPlayer : ModPlayer
             }
         }
         for (int i = 0; i < 10; i++) ClearSlot(i);
+    }
+
+    /// <summary> Activates an item in the given hotbar slot. </summary>
+    public void QuickUse(int i)
+    {
+        // save the selected hotbar slot
+        SelectOnPost = Player.selectedItem;
+
+        // make it ignore currently pressed buttons
+        Player.itemTime = Player.itemAnimation = 0;
+
+        Player.selectedItem = i;
+        Player.controlUseItem = true;
+        Player.releaseUseItem = true;
+        Player.ItemCheck();
     }
 }
