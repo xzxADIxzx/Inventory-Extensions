@@ -28,7 +28,7 @@ public class ExtensionsPlayer : ModPlayer
 
     public override void PostUpdate()
     {
-        if (SelectOnPost != -1 && Player.itemTime == 0)
+        if (Player == Main.LocalPlayer && SelectOnPost != -1 && Player.itemTime == 0)
         {
             Player.selectedItem = SelectOnPost;
             SelectOnPost = -1;
