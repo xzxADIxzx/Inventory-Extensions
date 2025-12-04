@@ -23,6 +23,7 @@ public class ExtensionsPlayer : ModPlayer
             if (ExtensionsConfig.Instance.SortOnStack) QuickSort();
         }
         if (Extensions.QuickSort  .JustPressed) QuickSort  ();
+        if (Extensions.QuickHeal  .JustPressed) QuickHeal  ();
         if (Extensions.ClearHotbar.JustPressed) ClearHotbar();
 
         for (int i = 0; i < Extensions.QuickUse.Length; i++)
@@ -50,6 +51,56 @@ public class ExtensionsPlayer : ModPlayer
     public void QuickSort()
     {
         if (Player.chest != -1) ItemSorting.SortChest();
+    }
+
+    /// <summary> Heals the player if there's a nurse nearby. </summary>
+    public void QuickHeal()
+    {
+        int Modify(int count, NPC npc)
+        {
+            for (int i = 0; i < Player.MaxBuffs; i++)
+            {
+                int type = Player.buffType[i];
+                if (Main.debuff[type] && Player.buffTime[i] > 60 && (type < 0 || !BuffID.Sets.NurseCannotRemoveDebuff[type]))
+                    count += 100;
+            }
+
+                 if (NPC.downedGolemBoss  ) count *= 200;
+            else if (NPC.downedPlantBoss  ) count *= 150;
+            else if (NPC.downedMechBossAny) count *= 100;
+            else if (Main.hardMode        ) count *=  60;
+            else if (NPC.downedQueenBee   ) count *=  25;
+            else if (NPC.downedBoss3      ) count *=  25;
+            else if (NPC.downedBoss2      ) count *=  10;
+            else if (NPC.downedBoss1      ) count *=   3;
+                 if (Main.expertMode      ) count *=   2;
+
+            return (int)(count * Main.ShopHelper.GetShoppingSettings(Player, npc).PriceAdjustment);
+        }
+        foreach (var npc in Main.ActiveNPCs)
+        {
+            if (npc.type != NPCID.Nurse || !npc.Center.WithinRange(Player.Center, 8f * 16f)) continue;
+
+            int count = Player.statLifeMax2 - Player.statLife,
+                price = Modify(count, npc);
+
+            if (price > 0 && Player.BuyItem(price))
+            {
+                Player.Heal(count);
+
+                for (int i = 0; i < Player.MaxBuffs; i++)
+                {
+                    int type = Player.buffType[i];
+                    if (Main.debuff[type] && Player.buffTime[i] > 0 && (type < 0 || !BuffID.Sets.NurseCannotRemoveDebuff[type]))
+                    {
+                        Player.DelBuff(i);
+                        i = -1; // the exact way the game shuffles buffs is unknown; therefore, the iterations is reset
+                    }
+                }
+
+                SoundEngine.PlaySound(SoundID.Item4);
+            }
+        }
     }
 
     /// <summary> Moves all non-favorited items out of hotbar. </summary>
