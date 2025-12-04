@@ -1,6 +1,7 @@
 Keybinds: {
     quick-stack.DisplayName: Быстрая стопка (когда открыт сундук)
     quick-sort.DisplayName: Быстрая сортировка (когда открыт сундук)
+    quick-heal.DisplayName: Быстрое лечение (когда рядом медсестра)
     clear-hotbar.DisplayName: Очистить панель быстрого доступа
     quick-use-0.DisplayName: Быстрое использование #1
     quick-use-1.DisplayName: Быстрое использование #2

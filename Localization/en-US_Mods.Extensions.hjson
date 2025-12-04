@@ -1,6 +1,7 @@
 Keybinds: {
     quick-stack.DisplayName: Quick Stack (when a chest is open)
     quick-sort.DisplayName: Quick Sort (when a chest is open)
+    quick-heal.DisplayName: Quick Heal (when a nurse is nearby)
     clear-hotbar.DisplayName: Clear Hotbar (move items outta hotbar)
     quick-use-0.DisplayName: Quick Use #1 (use a hotbar item)
     quick-use-1.DisplayName: Quick Use #2 (w/o selecting it)
