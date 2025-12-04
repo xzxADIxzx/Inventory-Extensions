@@ -16,7 +16,12 @@ public class ExtensionsPlayer : ModPlayer
 
     public override void ProcessTriggers(TriggersSet triggers)
     {
-        if (Extensions.QuickStack .JustPressed) QuickStack ();
+        if (Extensions.QuickStack .JustPressed)
+        {
+            if (ExtensionsConfig.Instance.ClearOnStack) ClearHotbar();
+            QuickStack();
+            if (ExtensionsConfig.Instance.SortOnStack) QuickSort();
+        }
         if (Extensions.QuickSort  .JustPressed) QuickSort  ();
         if (Extensions.ClearHotbar.JustPressed) ClearHotbar();
 
