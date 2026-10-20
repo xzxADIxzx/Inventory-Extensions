@@ -7,12 +7,13 @@ using Terraria.ModLoader;
 public class Extensions : Mod
 {
     /// <summary> Keybindings themselves used by the mod player. </summary>
-    public static ModKeybind QuickStack, QuickSort, ClearHotbar, QuickHeal;
+    public static ModKeybind QuickNearby, QuickStack, QuickSort, ClearHotbar, QuickHeal;
     /// <summary> Keybindings for quick use of the hotbar slots. </summary>
     public static ModKeybind[] QuickUse = new ModKeybind[10];
 
     public override void Load()
     {
+        QuickNearby = KeybindLoader.RegisterKeybind(this, "quick-nearby", Keys.Q);
         QuickStack  = KeybindLoader.RegisterKeybind(this, "quick-stack",  Keys.Q);
         QuickSort   = KeybindLoader.RegisterKeybind(this, "quick-sort",   Keys.T);
         QuickHeal   = KeybindLoader.RegisterKeybind(this, "quick-heal",   Keys.H);

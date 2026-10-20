@@ -16,6 +16,11 @@ public class ExtensionsPlayer : ModPlayer
 
     public override void ProcessTriggers(TriggersSet triggers)
     {
+        if (Extensions.QuickNearby.JustPressed)
+        {
+            if (ExtensionsConfig.Instance.ClearOnStack) ClearHotbar();
+            QuickNearby();
+        }
         if (Extensions.QuickStack .JustPressed)
         {
             if (ExtensionsConfig.Instance.ClearOnStack) ClearHotbar();
@@ -39,6 +44,12 @@ public class ExtensionsPlayer : ModPlayer
             Player.selectedItem = SelectOnPost;
             SelectOnPost = -1;
         }
+    }
+
+    /// <summary> Simply calls vanilla stack to nearby. </summary>
+    public void QuickNearby()
+    {
+        if (Player.chest == -1) Player.QuickStackAllChests();
     }
 
     /// <summary> Simply calls vanilla quick stack. </summary>
@@ -103,7 +114,7 @@ public class ExtensionsPlayer : ModPlayer
         }
     }
 
-    /// <summary> Moves all non-favorited items out of hotbar. </summary>
+    /// <summary> Moves all non-favorite items out of hotbar. </summary>
     public void ClearHotbar()
     {
         void ClearSlot(int i)
