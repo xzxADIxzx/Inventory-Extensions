@@ -1,4 +1,5 @@
 Keybinds: {
+    quick-nearby.DisplayName: Quick Stack To Nearby Chests
     quick-stack.DisplayName: Quick Stack (when a chest is open)
     quick-sort.DisplayName: Quick Sort (when a chest is open)
     quick-heal.DisplayName: Quick Heal (when a nurse is nearby)

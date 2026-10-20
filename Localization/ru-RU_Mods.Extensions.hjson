@@ -1,4 +1,5 @@
 Keybinds: {
+    quick-nearby.DisplayName: Быстрая стопка в сундуки поблизости
     quick-stack.DisplayName: Быстрая стопка (когда открыт сундук)
     quick-sort.DisplayName: Быстрая сортировка (когда открыт сундук)
     quick-heal.DisplayName: Быстрое лечение (когда рядом медсестра)
